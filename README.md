@@ -80,4 +80,5 @@ The steps here are pretty simple. This version of querying the trained model, on
 
 ```bash
 python predict-cloud.py example_json/<example>.json
-``` 
+```
+The URL to access the web-service can be found inside the [predict-cloud.py](./predict-cloud.py) script.
