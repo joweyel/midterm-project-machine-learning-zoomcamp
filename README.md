@@ -28,13 +28,14 @@ The dataset has the following features:
 
 
 ## How to tackle the problem
-1. The first step is to clean and pre-process the dataset followed EDA. The steps taken for this can be found in the jupyter notebook accompanying this project [here](./project/notebook.ipynb).
-2. Three Different Models for binary classifation are trained and evaluated (can also be found in the notebook [here](./project/notebook.ipynb)):
+1. The first step is to clean and pre-process the dataset followed EDA. The steps taken for this can be found in the jupyter notebook accompanying this project [here](./notebook.ipynb).
+2. Three Different Models for binary classifation are trained and evaluated (can also be found in the notebook [here](./notebook.ipynb)):
     - `LogisticRegression`
     - `RandomForestClassifier`
     - `xgboost` with `binary:logistic` objective
-3. The best model was chosen and the relevant code for training was exported to a dedicated training-script [train.py](./project/train.py)
-4. The trained model can now be deployed e.g. with `Docker` after creating a docker container from [Dockerfile](./project/Dockerfile)
+3. The best model was chosen and the relevant code for training was exported to a dedicated training-script [train.py](./train.py)
+4. The trained model can now be deployed e.g. with `Docker` after creating a docker container from [Dockerfile](./Dockerfile)
+
 
 
 ## Preparing the environment
@@ -42,11 +43,11 @@ In order to run the code of this project you have to create a separated python e
 ```bash
 ## Option 1: Virtualenv
 virtualenv -p python3.10 project
-source midterm-env/bin/activate
+source project/bin/activate
 
 ## Option 2: venv
 python3.10 -m venv project
-source midterm-env/bin/activate
+source project/bin/activate
 
 
 ## Option 3: pipenv (recommended)
@@ -57,7 +58,7 @@ pip install -r requirements.txt
 ```
 
 ## Deploying the trained model locally with Docker
-To make the trained machine learning model ready for deployment, it will be packaged inside a Docker container. In order to build the docker container, go to the [code](./project/)-subdirectory and execute the following line of code:
+To make the trained machine learning model ready for deployment, it will be packaged inside a Docker container. In order to build the docker container you have to execute the following line of code:
 ```bash
 docker build -t midterm-container .
 ```
@@ -67,13 +68,13 @@ To start the docker container run the following command:
 docker run -it --rm -p 9696:9696 midterm-container
 ```
 
-Now you can query the model inside the local docker container with the script [predict-test.py](./project/predict-test.py), where you can supply a json file as argument (an example can be found in the directory [example_json](./project/example_json/))
+Now you can query the model inside the local docker container with the script [predict-test.py](./predict-test.py), where you can supply a json file as argument (an example can be found in the directory [example_json](./example_json/))
 ```bash
 python predict-test.py example_json/<example>.json
 ```
 
 ## Access the model as Web-App over AWS ElasticBeanstalk
-The steps here are pretty simple. This version of querying the trained model, only involves calling a specific predict-script [predict-cloud.py](./project/predict-cloud.py) for the cloud-version of the model. To do this you have to use the following command:
+The steps here are pretty simple. This version of querying the trained model, only involves calling a specific predict-script [predict-cloud.py](./predict-cloud.py) for the cloud-version of the model. To do this you have to use the following command:
 
 ```bash
 python predict-cloud.py example_json/<example>.json
