@@ -1,5 +1,8 @@
 # Midterm Project
 
+![heart-image](https://storage.googleapis.com/kaggle-datasets-images/107706/256873/21d3eec8c2d5c04b7014f61ae3b516be/dataset-cover.jpg)
+Image source: [Kaggle](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)
+
 This Git-Repository contains my Midterm Project for the online Class [`Machine Learning Zoomcamp`](https://github.com/DataTalksClub/machine-learning-zoomcamp) by DataTalksClub / Alexey Grigorev. I was able to put everythin I have learned in previous weeks of the course to work, to create a machine learning project.
 
 
@@ -28,14 +31,13 @@ The dataset has the following features:
 
 
 ## How to tackle the problem
-1. The first step is to clean and pre-process the dataset followed EDA. The steps taken for this can be found in the jupyter notebook accompanying this project [here](./notebook.ipynb).
+1. The first step is to clean and pre-process the dataset followed by EDA. The steps taken for this can be found in the jupyter notebook accompanying this project [here](./notebook.ipynb).
 2. Three Different Models for binary classifation are trained and evaluated (can also be found in the notebook [here](./notebook.ipynb)):
     - `LogisticRegression`
     - `RandomForestClassifier`
     - `xgboost` with `binary:logistic` objective
 3. The best model was chosen and the relevant code for training was exported to a dedicated training-script [train.py](./train.py)
 4. The trained model can now be deployed e.g. with `Docker` after creating a docker container from [Dockerfile](./Dockerfile)
-
 
 
 ## Preparing the environment
