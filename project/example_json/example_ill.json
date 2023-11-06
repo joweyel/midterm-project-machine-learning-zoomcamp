@@ -1,0 +1,14 @@
+{
+    "age": 53,
+    "gender": "male",
+    "height": 168,
+    "weight": 100.0,
+    "sys": 160,
+    "dia": 100,
+    "cholesterol": "above normal",
+    "gluc": "above normal",
+    "smoke": "non-smoker",
+    "alco": "non-drinker",
+    "active": "active",
+    "cardio": 1
+}

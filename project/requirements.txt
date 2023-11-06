@@ -1,0 +1,10 @@
+tqdm
+requests
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn==1.3.2
+xgboost
+flask
+gunicorn
