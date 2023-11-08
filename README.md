@@ -59,6 +59,12 @@ pipenv --python 3.10 shell
 pip install -r requirements.txt 
 ```
 
+If you want to run the Notebook of this project yourself you need to install jupyter notebook dependencies inside the pipenv
+```bash
+pipenv shell
+pip install jupyter notebook ipython
+```
+
 ## Deploying the trained model locally with Docker
 To make the trained machine learning model ready for deployment, it will be packaged inside a Docker container. In order to build the docker container you have to execute the following line of code:
 ```bash
@@ -70,8 +76,11 @@ To start the docker container run the following command:
 docker run -it --rm -p 9696:9696 midterm-container
 ```
 
-Now you can query the model inside the local docker container with the script [predict-test.py](./predict-test.py), where you can supply a json file as argument (an example can be found in the directory [example_json](./example_json/))
+Now you have to open a new terminal and activate the pipenv-environment, then you can query the model inside the local docker container with the script [predict-test.py](./predict-test.py), where you can supply a json file as argument (an example can be found in the directory [example_json](./example_json/))
 ```bash
+# Activate environment
+pipenv shell
+# Querying the dockerized model
 python predict-test.py example_json/<example>.json
 ```
 
