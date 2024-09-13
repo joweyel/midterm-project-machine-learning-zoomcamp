@@ -85,9 +85,41 @@ python predict-test.py example_json/<example>.json
 ```
 
 ## Access the model as Web-App over AWS ElasticBeanstalk
-The steps here are pretty simple. This version of querying the trained model, only involves calling a specific predict-script [predict-cloud.py](./predict-cloud.py) for the cloud-version of the model. To do this you have to use the following command:
+
+### Deploy model to AWS Elastic Beanstalk
+- **Requirement**: AWS IAM account with sufficient `S3`, `EC2` access rights like and `AdministratorAccess-AWSElasticBeanstalk`
+
+Installing and using AWS Elastic Beanstalk inside pipenv environment:
+```bash
+# Installin EB as Development dependency
+pipenv install awsebcli --dev
+# Entering the virtual environment
+pipenv shell
+```
+
+Create service and launch it:
+```bash
+# Initialize the service in the current folder
+eb init -p docker -r <region> predict-serving
+# Create and launch
+eb create predict-serving-env
+```
+Obtaining the URL of the service:
+```bash
+export EB_ENDPOINT=$(aws elasticbeanstalk describe-environments --environment-names predict-serving-env --query "Environments[0].CNAME" --output text)
+```
+This sets the `EB_ENDPOINT` environment variable that is accessed in the following script.
+
+### Get predictions from the deployed model
+
+The next steps here are pretty simple. This version of querying the trained model, only involves calling a specific predict-script [predict-cloud.py](./predict-cloud.py) for the cloud-version of the model. To do this you have to use the following command:
 
 ```bash
 python predict-cloud.py example_json/<example>.json
 ```
-The URL to access the web-service can be found inside the [predict-cloud.py](./predict-cloud.py) script.
+The URL to access the web-service is automatically set when you used `export EB_ENDPOINT=...`, otherwise the script will immediately terminate.
+
+### Stopping and removing the deployed model
+```bash
+eb terminate predict-serving-env
+```

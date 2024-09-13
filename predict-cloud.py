@@ -3,7 +3,12 @@ import sys
 import json
 import requests
 
-host =  "cardio-predict-app-env.eba-virctjis.us-east-1.elasticbeanstalk.com"
+host = os.getenv("EB_ENDPOINT")
+if not host:
+    print("Environment variable EB_ENDPOINT not set!")
+    sys.exit(1)
+print("Sending data to host: ", host)
+
 url = f"http://{host}/predict"
 
 def load_json(path):
