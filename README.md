@@ -3,7 +3,7 @@
 ![dataset-cover](https://github.com/joweyel/midterm-project-machine-learning-zoomcamp/assets/50589933/9665c838-4483-4f85-a4ea-5909a2e31bb8)
 Image source: [Kaggle](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)
 
-This Git-Repository contains my Midterm Project for the online Class [`Machine Learning Zoomcamp`](https://github.com/DataTalksClub/machine-learning-zoomcamp) by DataTalksClub / Alexey Grigorev. I was able to put everythin I have learned in previous weeks of the course to work, to create a machine learning project.
+This Git-Repository contains my Midterm Project for the online Class [`Machine Learning Zoomcamp`](https://github.com/DataTalksClub/machine-learning-zoomcamp) by DataTalksClub / Alexey Grigorev. I was able to put everything I have learned in previous weeks of the course to work, to create a machine learning project.
 
 
 ## Problem Description
